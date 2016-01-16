@@ -1,0 +1,7 @@
+n = int(raw_input())
+nums = map(int, raw_input().split())
+nums.sort()
+pairs = zip(nums[:n-1], nums[1:])
+minad = min([y - x for x, y in pairs])
+result = filter(lambda pair: pair[1] - pair[0] == minad, pairs)
+print " ".join(map(lambda pair: " ".join([str(pair[0]), str(pair[1])]), result))
